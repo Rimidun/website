@@ -3,7 +3,6 @@ package com.example.website;
 import com.example.website.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,8 +23,8 @@ public class GreetingController {
 
     @GetMapping
     public String main(Map<String, Object> model) {
-        Iterable<Message> websitebd = messageRepo.findAll();
-        model.put("messages", websitebd);
+        Iterable<Message> messages = messageRepo.findAll();
+        model.put("messages", messages);
         return "main";
     }
 
@@ -34,8 +33,8 @@ public class GreetingController {
         Message message = new Message(text, tag);
         messageRepo.save(message);
 
-        Iterable<Message> websitebd = messageRepo.findAll();
-        model.put("websitebd", websitebd);
+        Iterable<Message> messages = messageRepo.findAll();
+        model.put("messages", message);
 
         return "main";
     }
