@@ -1,5 +1,6 @@
-package com.example.website;
+package com.example.website.controller;
 
+import com.example.website.domain.Message;
 import com.example.website.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
     @Autowired
     private MessageRepo messageRepo;
 
@@ -18,7 +19,7 @@ public class GreetingController {
     public String greeting(Map<String, Object> model) {
         return "greeting";
     }
-/1123
+
     @GetMapping("/main")
     public String main(Map<String, Object> model) {
         Iterable<Message> messages = messageRepo.findAll();
