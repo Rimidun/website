@@ -2,6 +2,9 @@
 
 <@c.page>
 List of users
+<div>
+<span><a href="/main">Main page</a></span>
+</div>
 
 <table>
     <thead>
